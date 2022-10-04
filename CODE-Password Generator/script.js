@@ -165,4 +165,39 @@ function generatePassword() {
     guaranteedCharacters.push(getRandom(specialCharacters));
   }
 
+// Conditional statement that adds array of numeric characters into array of possible characters based on user input
+  // Push new random special character to guaranteedCharacters
+  if (options.hasNumericCharacters) {
+    possibleCharacters = possibleCharacters.concat(numericCharacters);
+    guaranteedCharacters.push(getRandom(numericCharacters));
+  }
 
+  // Conditional statement that adds array of lowercase characters into array of possible characters based on user input
+  // Push new random lower-cased character to guaranteedCharacters
+  if (options.hasLowerCasedCharacters) {
+    possibleCharacters = possibleCharacters.concat(lowerCasedCharacters);
+    guaranteedCharacters.push(getRandom(lowerCasedCharacters));
+  }
+
+  // Conditional statement that adds array of uppercase characters into array of possible characters based on user input
+  // Push new random upper-cased character to guaranteedCharacters
+  if (options.hasUpperCasedCharacters) {
+    possibleCharacters = possibleCharacters.concat(upperCasedCharacters);
+    guaranteedCharacters.push(getRandom(upperCasedCharacters));
+  }
+
+// For loop to iterate over the password length from the options object, selecting random indices from the array of possible characters and concatenating those characters into the result variable
+for (var i = 0; i < options.length; i++) {
+  var possibleCharacter = getRandom(possibleCharacters);
+
+  result.push(possibleCharacter);
+}
+
+// Mix in at least one of each guaranteed character in the result
+for (var i = 0; i < guaranteedCharacters.length; i++) {
+  result[i] = guaranteedCharacters[i];
+}
+
+// Transform the result into a string and pass into writePassword
+return result.join('');
+}
