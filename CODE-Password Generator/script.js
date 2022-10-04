@@ -165,22 +165,20 @@ function generatePassword() {
     guaranteedCharacters.push(getRandom(specialCharacters));
   }
 
-// Conditional statement that adds array of numeric characters into array of possible characters based on user input
-  // Push new random special character to guaranteedCharacters
+
+// Push new random special character to guaranteedCharacters
   if (options.hasNumericCharacters) {
     possibleCharacters = possibleCharacters.concat(numericCharacters);
     guaranteedCharacters.push(getRandom(numericCharacters));
   }
 
-  // Conditional statement that adds array of lowercase characters into array of possible characters based on user input
-  // Push new random lower-cased character to guaranteedCharacters
+// Push new random lower-cased character to guaranteedCharacters
   if (options.hasLowerCasedCharacters) {
     possibleCharacters = possibleCharacters.concat(lowerCasedCharacters);
     guaranteedCharacters.push(getRandom(lowerCasedCharacters));
   }
 
-  // Conditional statement that adds array of uppercase characters into array of possible characters based on user input
-  // Push new random upper-cased character to guaranteedCharacters
+// Push new random upper-cased character to guaranteedCharacters
   if (options.hasUpperCasedCharacters) {
     possibleCharacters = possibleCharacters.concat(upperCasedCharacters);
     guaranteedCharacters.push(getRandom(upperCasedCharacters));
@@ -215,3 +213,5 @@ function writePassword() {
 
 // Add event listener to generate button
 generateBtn.addEventListener('click', writePassword);
+
+// Finished! =)
